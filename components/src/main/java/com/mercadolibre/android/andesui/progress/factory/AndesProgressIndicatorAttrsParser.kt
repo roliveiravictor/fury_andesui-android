@@ -5,10 +5,6 @@ import android.support.annotation.DrawableRes
 import android.util.AttributeSet
 import com.mercadolibre.android.andesui.R
 import com.mercadolibre.android.andesui.color.AndesColor
-import com.mercadolibre.android.andesui.message.factory.AndesMessageAttrs
-import com.mercadolibre.android.andesui.message.factory.AndesMessageAttrsParser
-import com.mercadolibre.android.andesui.message.hierarchy.AndesMessageHierarchy
-import com.mercadolibre.android.andesui.message.type.AndesMessageType
 import com.mercadolibre.android.andesui.progress.size.AndesProgressIndicatorSize
 
 /**
@@ -32,7 +28,7 @@ internal data class AndesProgressIndicatorAttrs(
 internal object AndesProgressIndicatorAttrsParser {
 
     fun parse(context: Context, attr: AttributeSet?): AndesProgressIndicatorAttrs {
-        val typedArray = context.obtainStyledAttributes(attr, R.styleable.AndesProgressIndicator)
+        val typedArray = context.obtainStyledAttributes(attr, R.styleable.AndesBadgeDot)
 
         return AndesProgressIndicatorAttrs(
                 AndesProgressIndicatorSize.SMALL,

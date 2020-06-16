@@ -27,6 +27,13 @@ class MainActivity : AppCompatActivity() {
         setupWhatsNew()
         setupContributionTrigger()
         setupAndesSpecsWeb()
+        setupProgressIndicator()
+    }
+
+    private fun setupProgressIndicator() {
+        andesui_progress_indicator.setOnClickListener {
+            launchIntent("meli://andes/progress-indicator")
+        }
     }
 
     private fun setupTags() {

@@ -33,7 +33,7 @@ internal data class AndesProgressIndicatorIndeterminateConfiguration(
 
 internal object AndesProgressIndicatorConfigurationFactory {
 
-    fun create(attrs: AndesProgressIndicatorAttrs): AndesProgressIndicatorConfiguration {
+    fun create(context: Context, attrs: AndesProgressIndicatorAttrs): AndesProgressIndicatorConfiguration {
         validateAttributes(attrs)
         return configure(attrs)
     }

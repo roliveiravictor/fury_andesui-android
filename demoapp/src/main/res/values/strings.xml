@@ -68,6 +68,7 @@
     <string name="andesui_demoapp_label_andes_message_specs">Andes Message Specs 📘</string>
     <string name="andesui_demoapp_label_andes_button_specs">Andes Button Specs 📘</string>
     <string name="andesui_demoapp_clear_button">Clear</string>
+    <string name="andesui_demoapp_progress_indicator">Andes Progress Indicator</string>
     <string name="andesui_demoapp_textfield">Andes Textfield</string>
     <string name="andesui_demoapp_textfield_state_text">State:</string>
     <string name="andesui_demoapp_textfield_prefix_text">Left component:</string>
