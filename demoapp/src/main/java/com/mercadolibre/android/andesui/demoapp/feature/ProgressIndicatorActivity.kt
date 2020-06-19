@@ -14,7 +14,7 @@ class ProgressIndicatorActivity : AppCompatActivity() {
         setContentView(R.layout.andesui_demoapp_whatsnew)
 
         setSupportActionBar(findViewById(R.id.andesui_nav_bar))
-        supportActionBar?.title = resources.getString(R.string.andesui_demoapp_screen_whatsnew)
+        supportActionBar?.title = resources.getString(R.string.andesui_demoapp_screen_progress_indicator)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
