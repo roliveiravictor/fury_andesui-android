@@ -110,7 +110,7 @@
                     android:scheme="meli" />
             </intent-filter>
         </activity>
-        <activity android:name=".feature.ProgressIndicatorActivity"
+        <activity android:name=".feature.ProgressIndicatorShowCaseActivity"
             android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

@@ -28,7 +28,7 @@ internal data class AndesProgressIndicatorAttrs(
 internal object AndesProgressIndicatorAttrsParser {
 
     fun parse(context: Context, attr: AttributeSet?): AndesProgressIndicatorAttrs {
-        val typedArray = context.obtainStyledAttributes(attr, R.styleable.AndesBadgeDot)
+        val typedArray = context.obtainStyledAttributes(attr, R.styleable.AndesProgressIndicator)
 
         return AndesProgressIndicatorAttrs(
                 AndesProgressIndicatorSize.SMALL,
