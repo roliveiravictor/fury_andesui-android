@@ -1,6 +1,7 @@
 package com.mercadolibre.android.andesui.textfield.factory
 
 import android.content.Context
+import android.text.TextWatcher
 import android.util.AttributeSet
 import com.mercadolibre.android.andesui.R
 import com.mercadolibre.android.andesui.textfield.state.AndesTextfieldState
@@ -14,7 +15,8 @@ internal data class AndesTextareaAttrs(
     val placeholder: String?,
     val counter: Int,
     val state: AndesTextfieldState,
-    val maxLines: Int?
+    val maxLines: Int?,
+    val textWatcher: TextWatcher? = null
 )
 
 /**

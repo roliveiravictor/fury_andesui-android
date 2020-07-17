@@ -94,6 +94,16 @@ class AndesTextarea : ConstraintLayout {
             setupMaxlines(createConfig())
         }
 
+    /**
+     * Getter and setter for the [textWatcher].
+     */
+    var textWatcher: TextWatcher?
+        get() = andesTextareaAttrs.textWatcher
+        set(value) {
+            andesTextareaAttrs = andesTextareaAttrs.copy(textWatcher = value)
+            setupTextWatcher()
+        }
+
     private lateinit var andesTextareaAttrs: AndesTextareaAttrs
     private lateinit var textareaContainer: ConstraintLayout
     private lateinit var textContainer: ConstraintLayout
@@ -158,6 +168,7 @@ class AndesTextarea : ConstraintLayout {
         setupPlaceHolderComponent(config)
         setupColorComponents(config)
         setupMaxlines(config)
+        setupTextWatcher()
         setupTextComponent(config)
     }
 
@@ -210,6 +221,15 @@ class AndesTextarea : ConstraintLayout {
     private fun setupTextComponent(config: AndesTextfieldConfiguration) {
         setupMarginStartTextComponent()
         textComponent.typeface = config.typeface
+    }
+
+    /**
+     * Set the TextWatcher of the edit text.
+     */
+    private fun setupTextWatcher() {
+        if (andesTextareaAttrs.textWatcher != null) {
+            textComponent.addTextChangedListener(andesTextareaAttrs.textWatcher)
+        }
     }
 
     /**

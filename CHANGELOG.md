@@ -1,6 +1,22 @@
+# v2.7.0
+## Added
+- LinkButton in AndesMessage Component.
+
+# v2.6.0
+## Added
+- Checkbox Component.
+- RadioButton Component.
+
+# v2.5.1
+## Added
+- Add TextWatcher in TextField and TextArea.
+- ShowCounter attribute added.
+- The cursor position at the end of the text is set when changing the type.
+
 # v2.5.0
 ## Added
 - TAG Component.
+- Snackbar Component.
 
 # v2.4.0
 ## Added

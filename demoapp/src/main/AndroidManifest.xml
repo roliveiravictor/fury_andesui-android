@@ -36,6 +36,34 @@
                     android:scheme="meli" />
             </intent-filter>
         </activity>
+        <activity android:name=".feature.SnackbarShowcaseActivity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="andes"
+                    android:path="/snackbar"
+                    android:scheme="meli" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.CheckboxShowcaseActivity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="andes"
+                    android:path="/checkbox"
+                    android:scheme="meli" />
+            </intent-filter>
+        </activity>
         <activity android:name=".feature.TagShowcaseActivity"
             android:parentActivityName=".MainActivity">
             <intent-filter>
@@ -96,6 +124,21 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".feature.ThumbnailShowcaseActivity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="andes"
+                    android:path="/thumbnail"
+                    android:scheme="meli" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".feature.WhatsNewActivity"
             android:parentActivityName=".MainActivity">
             <intent-filter>
@@ -120,7 +163,21 @@
 
                 <data
                     android:host="andes"
-                    android:path="/progress-indicator"
+                android:path="/progress-indicator"
+                android:scheme="meli" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.RadioButtonShowcaseActivity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="andes"
+                    android:path="/radiobutton"
                     android:scheme="meli" />
             </intent-filter>
         </activity>

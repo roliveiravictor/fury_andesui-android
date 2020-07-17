@@ -1,6 +1,8 @@
 package com.mercadolibre.android.andesui.textfield
 
 import android.os.Build
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import com.facebook.common.logging.FLog
 import com.facebook.drawee.backends.pipeline.Fresco
@@ -11,7 +13,7 @@ import com.facebook.soloader.SoLoader
 import com.mercadolibre.android.andesui.BuildConfig
 import com.mercadolibre.android.andesui.textfield.content.AndesTextfieldLeftContent
 import com.mercadolibre.android.andesui.textfield.content.AndesTextfieldRightContent
-import junit.framework.Assert.assertEquals
+import junit.framework.Assert.*
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Test
@@ -74,5 +76,23 @@ class AndesTextfieldTest {
     fun `set action`() {
         textfield.setAction("action", View.OnClickListener { })
         assertEquals(textfield.rightContent, AndesTextfieldRightContent.ACTION)
+    }
+
+    @Test
+    fun `textfield with watcher`() {
+        val watcher = object : TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun afterTextChanged(s: Editable) {}
+        }
+        textfield.textWatcher = watcher
+        assertNotNull(textfield.textWatcher)
+    }
+
+    @Test
+    fun `textfield without watcher`() {
+        assertNull(textfield.textWatcher)
     }
 }

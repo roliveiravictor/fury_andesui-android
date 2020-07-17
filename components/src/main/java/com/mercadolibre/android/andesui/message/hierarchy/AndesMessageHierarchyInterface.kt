@@ -98,6 +98,10 @@ internal sealed class AndesMessageHierarchyInterface {
     abstract fun secondaryActionBackgroundColor(type: AndesMessageTypeInterface): BackgroundColorConfig
 
     abstract fun secondaryActionTextColor(type: AndesMessageTypeInterface): AndesColor
+
+    abstract fun linkActionBackgroundColor(type: AndesMessageTypeInterface): BackgroundColorConfig
+
+    abstract fun linkActionTextColor(type: AndesMessageTypeInterface): AndesColor
 }
 
 internal object AndesLoudMessageHierarchy : AndesMessageHierarchyInterface() {
@@ -111,6 +115,10 @@ internal object AndesLoudMessageHierarchy : AndesMessageHierarchyInterface() {
     override fun secondaryActionBackgroundColor(type: AndesMessageTypeInterface) = type.secondaryActionColorConfig()
 
     override fun secondaryActionTextColor(type: AndesMessageTypeInterface) = R.color.andes_white.toAndesColor()
+
+    override fun linkActionBackgroundColor(type: AndesMessageTypeInterface) = type.linkActionColorConfig()
+
+    override fun linkActionTextColor(type: AndesMessageTypeInterface) = R.color.andes_white.toAndesColor() // TODO CHECK THIS
 }
 
 internal object AndesQuietMessageHierarchy : AndesMessageHierarchyInterface() {
@@ -128,4 +136,8 @@ internal object AndesQuietMessageHierarchy : AndesMessageHierarchyInterface() {
     }
 
     override fun secondaryActionTextColor(type: AndesMessageTypeInterface) = R.color.andes_accent_color_500.toAndesColor()
+
+    override fun linkActionBackgroundColor(type: AndesMessageTypeInterface) = type.linkActionColorConfig()
+
+    override fun linkActionTextColor(type: AndesMessageTypeInterface) = R.color.andes_accent_color_500.toAndesColor()
 }

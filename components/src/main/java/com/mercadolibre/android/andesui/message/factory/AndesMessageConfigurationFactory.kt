@@ -27,10 +27,13 @@ internal data class AndesMessageConfiguration(
     val dismissableIconColor: AndesColor?,
     val primaryActionText: String?,
     val secondaryActionText: String?,
+    val linkActionText: String?,
     val primaryActionBackgroundColor: BackgroundColorConfig,
     val primaryActionTextColor: AndesColor,
     val secondaryActionBackgroundColor: BackgroundColorConfig,
-    val secondaryActionTextColor: AndesColor
+    val secondaryActionTextColor: AndesColor,
+    val linkActionBackgroundColor: BackgroundColorConfig,
+    val linkActionTextColor: AndesColor
 )
 
 internal object AndesMessageConfigurationFactory {
@@ -55,10 +58,14 @@ internal object AndesMessageConfigurationFactory {
                     dismissableIconColor = resolveDismissableIconColor(andesMessageHierarchy.hierarchy),
                     primaryActionText = null,
                     secondaryActionText = null,
+                    linkActionText = null,
+
                     primaryActionBackgroundColor = resolvePrimaryActionBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
                     primaryActionTextColor = resolvePrimaryActionTextColor(andesMessageHierarchy.hierarchy),
                     secondaryActionBackgroundColor = resolveSecondaryActionBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
-                    secondaryActionTextColor = resolveSecondaryActionTextColor(andesMessageHierarchy.hierarchy, andesMessageType.type)
+                    secondaryActionTextColor = resolveSecondaryActionTextColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
+                    linkActionBackgroundColor = resolveLinkActionBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
+                    linkActionTextColor = resolveLinkActionTextColor(andesMessageHierarchy.hierarchy, andesMessageType.type)
             )
         }
     }
@@ -92,4 +99,12 @@ internal object AndesMessageConfigurationFactory {
         hierarchy: AndesMessageHierarchyInterface,
         type: AndesMessageTypeInterface
     ) = hierarchy.secondaryActionTextColor(type)
+    private fun resolveLinkActionBackgroundColor(
+        hierarchy: AndesMessageHierarchyInterface,
+        type: AndesMessageTypeInterface
+    ) = hierarchy.linkActionBackgroundColor(type)
+    private fun resolveLinkActionTextColor(
+        hierarchy: AndesMessageHierarchyInterface,
+        type: AndesMessageTypeInterface
+    ) = hierarchy.linkActionTextColor(type)
 }

@@ -66,7 +66,9 @@ class MessageShowcaseActivity : AppCompatActivity() {
         }
 
         private fun addDynamicMessage(inflater: LayoutInflater): View {
-            val layoutMessagesChange = inflater.inflate(R.layout.andesui_message_showcase_change, null, false) as ScrollView
+            val layoutMessagesChange = inflater.inflate(
+                    R.layout.andesui_message_showcase_change, null, false
+            ) as ScrollView
 
             val hierarchySpinner: Spinner = layoutMessagesChange.findViewById(R.id.hierarchy_spinner)
             ArrayAdapter.createFromResource(
@@ -98,15 +100,20 @@ class MessageShowcaseActivity : AppCompatActivity() {
 
             val secondaryActionText = layoutMessagesChange.findViewById<EditText>(R.id.secondary_action_text)
 
+            val linkActionText = layoutMessagesChange.findViewById<EditText>(R.id.link_action_text)
+
             val changeButton = layoutMessagesChange.findViewById<AndesButton>(R.id.change_button)
             val changeMessage = layoutMessagesChange.findViewById<AndesMessage>(R.id.message)
 
             changeButton.setOnClickListener {
-
                 changeMessage.isDismissable = dismissableCheckbox.isChecked
                 changeMessage.title = titleText.text.toString()
-                if (bodyText.text.toString() == "") {
-                    Toast.makeText(context, "Message cannot be visualized with null body", Toast.LENGTH_SHORT).show()
+                if (bodyText.text.toString().isEmpty()) {
+                    Toast.makeText(
+                            context,
+                            "Message cannot be visualized with null body",
+                            Toast.LENGTH_SHORT
+                    ).show()
                 } else {
                     changeMessage.body = bodyText.text.toString()
                 }
@@ -115,10 +122,11 @@ class MessageShowcaseActivity : AppCompatActivity() {
 
                 changeMessage.hierarchy = AndesMessageHierarchy.fromString(hierarchySpinner.selectedItem.toString())
 
-                if (primaryActionText.text.toString() != "") {
+                if (primaryActionText.text.toString().isNotEmpty()) {
                     changeMessage.setupPrimaryAction(primaryActionText.text.toString(), View.OnClickListener {
                         Toast.makeText(context, "Primary onClick", Toast.LENGTH_SHORT).show()
                     })
+                    changeMessage.hideLinkAction()
                 } else {
                     changeMessage.hidePrimaryAction()
                 }
@@ -129,19 +137,44 @@ class MessageShowcaseActivity : AppCompatActivity() {
                     })
                 }
 
-                if (secondaryActionText.text.toString() != "") {
+                if (secondaryActionText.text.toString().isNotEmpty()) {
                     when {
                         primaryActionText.text.toString() != "" -> {
-                            changeMessage.setupSecondaryAction(secondaryActionText.text.toString(), View.OnClickListener {
-                                Toast.makeText(context, "Secondary onClick", Toast.LENGTH_SHORT).show()
-                            })
+                            changeMessage.setupSecondaryAction(
+                                    secondaryActionText.text.toString(), View.OnClickListener {
+                                        Toast.makeText(context, "Secondary onClick", Toast.LENGTH_SHORT).show()
+                                    }
+                            )
                         }
                         else -> {
-                            Toast.makeText(context, "Cannot set a secondary action without a primary one", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                    context,
+                                    "Cannot set a secondary action without a primary one",
+                                    Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 } else {
                     changeMessage.hideSecondaryAction()
+                }
+
+                if (linkActionText.text.toString().isNotEmpty()) {
+                    when {
+                        primaryActionText.text.toString() == "" -> {
+                            changeMessage.setupLinkAction(linkActionText.text.toString(), View.OnClickListener {
+                                Toast.makeText(context, "link onClick", Toast.LENGTH_SHORT).show()
+                            }, changeMessage.hierarchy)
+                        }
+                        else -> {
+                            Toast.makeText(
+                                    context,
+                                    "Cannot set a link action with a primary one",
+                                    Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                } else {
+                    changeMessage.hideLinkAction()
                 }
 
                 changeMessage.visibility = View.VISIBLE
@@ -151,7 +184,10 @@ class MessageShowcaseActivity : AppCompatActivity() {
         }
 
         private fun addStaticMessages(inflater: LayoutInflater): View {
-            val layoutMessages = inflater.inflate(R.layout.andesui_message_showcase, null, false) as ScrollView
+            val layoutMessages = inflater.inflate(
+                    R.layout.andesui_message_showcase, null, false
+            ) as ScrollView
+
             val button = layoutMessages.findViewById<AndesButton>(R.id.button)
 
             layoutMessages.findViewById<AndesButton>(R.id.andesui_demoapp_andes_specs_message).setOnClickListener {

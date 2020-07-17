@@ -1,4 +1,4 @@
-package com.mercadolibre.android.andesui.tag.factory.simple
+package com.mercadolibre.android.andesui.tag.factory
 
 import android.content.Context
 import android.util.AttributeSet
@@ -50,7 +50,7 @@ internal object AndesTagSimpleAttrsParser {
             ANDES_SIMPLE_TAG_TYPE_SUCCESS -> AndesTagType.SUCCESS
             ANDES_SIMPLE_TAG_TYPE_WARNING -> AndesTagType.WARNING
             ANDES_SIMPLE_TAG_TYPE_ERROR -> AndesTagType.ERROR
-            else -> AndesTagType.DEFAULT
+            else -> AndesTagType.NEUTRAL
         }
 
         val size = when (typedArray.getString(R.styleable.AndesTagSimple_tagSimpleSize)) {

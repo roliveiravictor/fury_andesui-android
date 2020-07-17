@@ -8,7 +8,7 @@ import android.support.v4.graphics.ColorUtils
 
 data class AndesColor(
     @ColorRes val colorRes: Int,
-    val alpha: Float = 1f
+    var alpha: Float = 1f
 ) {
     @ColorInt
     fun colorInt(context: Context): Int =
@@ -17,4 +17,10 @@ data class AndesColor(
             } else {
                 ColorUtils.blendARGB(colorRes.toColor(context), Color.BLACK, alpha)
             }
+
+    @ColorInt
+    fun colorIntToAlpha(context: Context): Int =
+        ColorUtils.setAlphaComponent(colorRes.toColor(context), convertAlphaToInt(alpha))
+
+    private fun convertAlphaToInt(alpha: Float): Int = (255 * alpha).toInt()
 }

@@ -19,6 +19,8 @@ import com.mercadolibre.android.andesui.message.factory.AndesMessageConfiguratio
 import com.mercadolibre.android.andesui.message.factory.AndesMessageConfigurationFactory
 import com.mercadolibre.android.andesui.message.hierarchy.AndesMessageHierarchy
 import com.mercadolibre.android.andesui.message.type.AndesMessageType
+import android.graphics.Paint
+import com.mercadolibre.android.andesui.typeface.getFontOrDefault
 
 class AndesMessage : CardView {
 
@@ -77,6 +79,12 @@ class AndesMessage : CardView {
             primaryAction.textComponent.text = value
         }
 
+    private var linkActionText: String
+        get() = linkAction.textComponent.text.toString()
+        set(value) {
+            linkAction.textComponent.text = value
+        }
+
     private var secondaryActionText: String
         get() = secondaryAction.textComponent.text.toString()
         set(value) {
@@ -92,10 +100,13 @@ class AndesMessage : CardView {
     private lateinit var andesMessageAttrs: AndesMessageAttrs
     private lateinit var primaryAction: AndesButton
     private lateinit var secondaryAction: AndesButton
+    private lateinit var linkAction: AndesButton
 
     @Suppress("unused")
     private constructor(context: Context) : super(context) {
-        throw IllegalStateException("Constructor without parameters in Andes Message is not allowed. You must provide some attributes.")
+        throw IllegalStateException(
+                "Constructor without parameters in Andes Message is not allowed. You must provide some attributes."
+        )
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
@@ -183,6 +194,7 @@ class AndesMessage : CardView {
         pipeComponent = container.findViewById(R.id.andes_pipe)
         primaryAction = container.findViewById(R.id.andes_primary_action)
         secondaryAction = container.findViewById(R.id.andes_secondary_action)
+        linkAction = container.findViewById(R.id.andes_link_action)
     }
 
     /**
@@ -258,6 +270,8 @@ class AndesMessage : CardView {
         primaryAction.changeTextColor(config.primaryActionTextColor.colorInt(context))
         secondaryAction.changeBackgroundColor(config.secondaryActionBackgroundColor)
         secondaryAction.changeTextColor(config.secondaryActionTextColor.colorInt(context))
+        linkAction.changeBackgroundColor(config.linkActionBackgroundColor)
+        linkAction.changeTextColor(config.linkActionTextColor.colorInt(context))
     }
 
     fun setupPrimaryAction(text: String, onClickListener: OnClickListener) {
@@ -279,6 +293,29 @@ class AndesMessage : CardView {
         }
     }
 
+    fun setupLinkAction(text: String, onClickListener: OnClickListener, hierarchy: AndesMessageHierarchy) {
+        if (primaryAction.visibility == View.GONE) {
+
+            linkAction.setPadding(LINK_BUTTON_PADDING,
+                                  LINK_BUTTON_PADDING,
+                                  LINK_BUTTON_PADDING,
+                                  LINK_BUTTON_PADDING)
+
+            linkAction.visibility = View.VISIBLE
+            linkActionText = text
+            linkAction.textComponent.typeface = context.getFontOrDefault(R.font.andes_font_regular)
+            linkAction.textComponent.paintFlags = if (hierarchy == AndesMessageHierarchy.LOUD) Paint.UNDERLINE_TEXT_FLAG else 0
+            linkAction.setOnClickListener(onClickListener)
+        } else {
+            when {
+                BuildConfig.DEBUG ->
+                    throw IllegalStateException("Cannot initialize a link action with a primary one")
+                else ->
+                    Log.d("AndesMessage", "Cannot initialize a link action with a primary one")
+            }
+        }
+    }
+
     fun setupDismissableCallback(onClickListener: OnClickListener) {
         dismissableComponent.setOnClickListener {
             visibility = View.GONE
@@ -295,12 +332,17 @@ class AndesMessage : CardView {
         secondaryAction.visibility = View.GONE
     }
 
+    fun hideLinkAction() {
+        linkAction.visibility = View.GONE
+    }
+
     private fun createConfig() = AndesMessageConfigurationFactory.create(context, andesMessageAttrs)
 
     companion object {
         private val HIERARCHY_DEFAULT = AndesMessageHierarchy.LOUD
         private val STATE_DEFAULT = AndesMessageType.NEUTRAL
         private val TITLE_DEFAULT = null
+        private val LINK_BUTTON_PADDING = 0
         private const val IS_DISMISSIBLE_DEFAULT = false
     }
 }

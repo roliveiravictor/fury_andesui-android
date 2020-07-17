@@ -11,46 +11,57 @@ import com.mercadolibre.android.andesui.color.toAndesColor
 internal interface AndesSimpleTagTypeInterface {
 
     /**
-     * Returns a [AndesColor] that contains the primary color data for the tag.
-     *
-     * @return a [AndesColor] that contains the primary color data for the tag.
+     * @return an [AndesColor] that contains the background color data for the tag.
      */
-    fun primaryColor(): AndesColor
+    fun backgroundColor(): AndesColor
 
     /**
-     * Returns a [AndesColor] that contains the secondary color data for the tag.
-     *
-     * @return a [AndesColor] that contains the secondary color data for the tag.
+     * @return an [AndesColor] that contains the border color data for the tag.
      */
-    fun secondaryColor(): AndesColor
+    fun borderColor(): AndesColor
+
+    /**
+     * @return an [AndesColor] that contains the text color data for the tag.
+     */
+    fun textColor(): AndesColor
+
+    /**
+     * @return an [AndesColor] that contains the dismiss color data for the tag.
+     */
+    fun dismissColor(): AndesColor
 }
 
 internal class AndesNeutralTagType : AndesSimpleTagTypeInterface {
-    override fun primaryColor() = R.color.andes_gray_450_solid.toAndesColor()
-    override fun secondaryColor() = R.color.andes_gray_070_solid.toAndesColor()
+    override fun backgroundColor() = R.color.andes_transparent.toAndesColor()
+    override fun borderColor() = R.color.andes_gray_250_solid.toAndesColor()
+    override fun textColor() = R.color.andes_gray_800_solid.toAndesColor()
+    override fun dismissColor() = R.color.andes_gray_450_solid.toAndesColor()
 }
 
 internal class AndesHighlightTagType : AndesSimpleTagTypeInterface {
-    override fun primaryColor() = R.color.andes_accent_color_500.toAndesColor()
-    override fun secondaryColor() = R.color.andes_accent_color_100.toAndesColor()
+    override fun backgroundColor() = R.color.andes_accent_color_100.toAndesColor()
+    override fun borderColor() = R.color.andes_accent_color_500.toAndesColor()
+    override fun textColor() = R.color.andes_accent_color_500.toAndesColor()
+    override fun dismissColor() = R.color.andes_accent_color_500.toAndesColor()
 }
 
 internal class AndesSuccessTagType : AndesSimpleTagTypeInterface {
-    override fun primaryColor() = R.color.andes_green_500.toAndesColor()
-    override fun secondaryColor() = R.color.andes_green_100.toAndesColor()
+    override fun backgroundColor() = R.color.andes_green_100.toAndesColor()
+    override fun borderColor() = R.color.andes_green_500.toAndesColor()
+    override fun textColor() = R.color.andes_green_500.toAndesColor()
+    override fun dismissColor() = R.color.andes_green_500.toAndesColor()
 }
 
 internal class AndesWarningTagType : AndesSimpleTagTypeInterface {
-    override fun primaryColor() = R.color.andes_orange_500.toAndesColor()
-    override fun secondaryColor() = R.color.andes_orange_100.toAndesColor()
+    override fun backgroundColor() = R.color.andes_orange_100.toAndesColor()
+    override fun borderColor() = R.color.andes_orange_500.toAndesColor()
+    override fun textColor() = R.color.andes_orange_500.toAndesColor()
+    override fun dismissColor() = R.color.andes_orange_500.toAndesColor()
 }
 
 internal class AndesErrorTagType : AndesSimpleTagTypeInterface {
-    override fun primaryColor() = R.color.andes_red_500.toAndesColor()
-    override fun secondaryColor() = R.color.andes_red_100.toAndesColor()
-}
-
-internal class AndesDefaultTagType : AndesSimpleTagTypeInterface {
-    override fun primaryColor() = R.color.andes_gray_450_solid.toAndesColor()
-    override fun secondaryColor() = R.color.andes_transparent.toAndesColor()
+    override fun backgroundColor() = R.color.andes_red_100.toAndesColor()
+    override fun borderColor() = R.color.andes_red_500.toAndesColor()
+    override fun textColor() = R.color.andes_red_500.toAndesColor()
+    override fun dismissColor() = R.color.andes_red_500.toAndesColor()
 }
