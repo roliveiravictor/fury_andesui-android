@@ -17,21 +17,10 @@ class AndesProgressIndicator : ConstraintLayout {
 
     private lateinit var andesProgressIndicatorAttrs: AndesProgressIndicatorAttrs
 
-    /**
-     * Constructor for creating an AndesButton via XML.
-     * The [attrs] are the attributes specified in the parameters of XML.
-     *
-     * Hope you are using the parameters specified in attrs.xml file: andesButtonHierarchy, andesButtonSize, andesButtonLeftIconCustom, etc.
-     */
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         initAttrs(attrs)
     }
 
-    /**
-     * Constructor for creating an AndesButton via XML.
-     * The [attrs] are the attributes specified in the parameters of XML.
-     * The [defStyleAttr] is not considered because we take care of all Andes styling for you.
-     */
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(context, attrs)
 
     fun create() {
@@ -48,11 +37,6 @@ class AndesProgressIndicator : ConstraintLayout {
         ).get<AndesProgressIndicatorDeterminateConfiguration>()
     }
 
-    /**
-     * Sets the proper configuration for this button based on the [attrs] received via XML.
-     *
-     * @param attrs attributes from the XML.
-     */
     private fun initAttrs(attrs: AttributeSet?) {
         andesProgressIndicatorAttrs = AndesProgressIndicatorAttrsParser.parse(context, attrs)
         setupComponents(createConfig())
