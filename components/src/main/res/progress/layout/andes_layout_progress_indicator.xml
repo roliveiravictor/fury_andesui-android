@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/andes_progress_indicator_container"
+    android:id="@+id/andes_checkbox_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-        <com.mercadolibre.android.andesui.progress.AndesProgressIndicator
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            app:andesProgressIndicatorSize="medium"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

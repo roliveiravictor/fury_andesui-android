@@ -4,13 +4,8 @@ import android.content.Context
 import android.support.annotation.DrawableRes
 import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
+import android.view.View
 import com.mercadolibre.android.andesui.R
-import com.mercadolibre.android.andesui.checkbox.AndesCheckbox
-import com.mercadolibre.android.andesui.checkbox.align.AndesCheckboxAlign
-import com.mercadolibre.android.andesui.checkbox.factory.AndesCheckboxAttrs
-import com.mercadolibre.android.andesui.checkbox.factory.AndesCheckboxConfigurationFactory
-import com.mercadolibre.android.andesui.checkbox.status.AndesCheckboxStatus
-import com.mercadolibre.android.andesui.checkbox.type.AndesCheckboxType
 import com.mercadolibre.android.andesui.color.AndesColor
 import com.mercadolibre.android.andesui.progress.extensions.get
 import com.mercadolibre.android.andesui.progress.factory.AndesProgressIndicatorAttrs
@@ -96,6 +91,47 @@ class AndesProgressIndicator : ConstraintLayout {
     }
 
     private fun setupComponents(config: AndesProgressIndicatorConfiguration) {
+        setupViewId()
+        setupSize(config)
+        setupTint(config)
+        setupTextColor(config)
+        setupLabel(config)
+        setupLinear(config)
+        setupOffset(config)
+        setupThumbnail(config)
+    }
 
+    private fun setupThumbnail(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupOffset(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupLinear(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupLabel(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupTextColor(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupTint(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupSize(config: AndesProgressIndicatorConfiguration) {
+
+    }
+
+    private fun setupViewId() {
+        if (id == NO_ID) {
+            id = View.generateViewId()
+        }
     }
 }
