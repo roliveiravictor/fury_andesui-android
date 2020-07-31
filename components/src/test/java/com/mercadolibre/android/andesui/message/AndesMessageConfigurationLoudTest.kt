@@ -387,6 +387,58 @@ class AndesMessageConfigurationLoudTest {
     }
 
     @Test
+    fun `Loud, Neutral link action color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.NEUTRAL, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionBackgroundColor, BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
+                otherColor = null))
+    }
+
+    @Test
+    fun `Loud, Success link action color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.SUCCESS, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionBackgroundColor, BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
+                otherColor = null))
+    }
+
+    @Test
+    fun `Loud, Error link action color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.ERROR, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionBackgroundColor, BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
+                otherColor = null))
+    }
+
+    @Test
+    fun `Loud, Warning link action color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.WARNING, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionBackgroundColor, BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
+                otherColor = null))
+    }
+
+    @Test
     fun `Loud, Neutral primary action text color`() {
         attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.NEUTRAL, "Body", "Title", true)
         val config = configFactory.create(context, attrs)
@@ -440,5 +492,33 @@ class AndesMessageConfigurationLoudTest {
         attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.WARNING, "Body", "Title", true)
         val config = configFactory.create(context, attrs)
         assertEquals(config.secondaryActionTextColor, R.color.andes_white.toAndesColor())
+    }
+
+    @Test
+    fun `Loud, Neutral link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.NEUTRAL, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_white.toAndesColor())
+    }
+
+    @Test
+    fun `Loud, Success link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.SUCCESS, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_white.toAndesColor())
+    }
+
+    @Test
+    fun `Loud, Error link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.ERROR, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_white.toAndesColor())
+    }
+
+    @Test
+    fun `Loud, Warning link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.LOUD, AndesMessageType.WARNING, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_white.toAndesColor())
     }
 }

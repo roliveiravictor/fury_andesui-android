@@ -397,4 +397,31 @@ class AndesMessageConfigurationQuiet {
         val config = configFactory.create(context, attrs)
         assertEquals(config.secondaryActionTextColor, R.color.andes_accent_color_500.toAndesColor())
     }
+    @Test
+    fun `Quiet, Neutral link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.QUIET, AndesMessageType.NEUTRAL, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_accent_color_500.toAndesColor())
+    }
+
+    @Test
+    fun `Quiet, Success link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.QUIET, AndesMessageType.SUCCESS, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_accent_color_500.toAndesColor())
+    }
+
+    @Test
+    fun `Quiet, Error link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.QUIET, AndesMessageType.ERROR, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_accent_color_500.toAndesColor())
+    }
+
+    @Test
+    fun `Quiet, Warning link action text color`() {
+        attrs = AndesMessageAttrs(AndesMessageHierarchy.QUIET, AndesMessageType.WARNING, "Body", "Title", true)
+        val config = configFactory.create(context, attrs)
+        assertEquals(config.linkActionTextColor, R.color.andes_accent_color_500.toAndesColor())
+    }
 }

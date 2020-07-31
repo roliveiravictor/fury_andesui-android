@@ -1,4 +1,4 @@
-package com.mercadolibre.android.andesui.tag.factory.simple
+package com.mercadolibre.android.andesui.tag.factory
 
 import com.mercadolibre.android.andesui.color.AndesColor
 import com.mercadolibre.android.andesui.tag.leftcontent.AndesTagLeftContent
@@ -9,9 +9,10 @@ import com.mercadolibre.android.andesui.tag.type.AndesSimpleTagTypeInterface
 
 internal data class AndesTagSimpleConfiguration(
     val text: String? = null,
+    val backgroundColor: AndesColor,
     val borderColor: AndesColor,
     val textColor: AndesColor,
-    val backgroundColor: AndesColor? = null,
+    val dismissColor: AndesColor,
     val leftContentData: LeftContent? = null,
     val leftContent: AndesTagLeftContent? = null,
     val rightContentData: RightContent? = null,
@@ -27,6 +28,7 @@ internal object AndesSimpleTagConfigurationFactory {
                     backgroundColor = resolveBackgroundColor(andesTagType.type),
                     borderColor = resolveBorderColor(andesTagType.type),
                     textColor = resolveTextColor(andesTagType.type),
+                    dismissColor = resolveDismissColor(andesTagType.type),
                     leftContentData = andesTagSimpleAttrs.leftContentData,
                     leftContent = andesTagSimpleAttrs.leftContent,
                     rightContentData = andesTagSimpleAttrs.rightContentData,
@@ -35,7 +37,8 @@ internal object AndesSimpleTagConfigurationFactory {
         }
     }
 
-    private fun resolveBackgroundColor(type: AndesSimpleTagTypeInterface) = type.secondaryColor()
-    private fun resolveBorderColor(type: AndesSimpleTagTypeInterface) = type.primaryColor()
-    private fun resolveTextColor(type: AndesSimpleTagTypeInterface) = type.primaryColor()
+    private fun resolveBackgroundColor(type: AndesSimpleTagTypeInterface) = type.backgroundColor()
+    private fun resolveBorderColor(type: AndesSimpleTagTypeInterface) = type.borderColor()
+    private fun resolveTextColor(type: AndesSimpleTagTypeInterface) = type.textColor()
+    private fun resolveDismissColor(type: AndesSimpleTagTypeInterface) = type.dismissColor()
 }

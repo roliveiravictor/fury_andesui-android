@@ -40,14 +40,21 @@ class ButtonShowcaseActivity : AppCompatActivity() {
     }
 
     private fun addLoudButtons(container: View) {
-        val andesButtonSmall = AndesButton(this, AndesButtonSize.SMALL, AndesButtonHierarchy.LOUD, null)
+        val andesButtonSmall = AndesButton(
+                this, AndesButtonSize.SMALL, AndesButtonHierarchy.LOUD, null
+        )
         andesButtonSmall.text = getString(R.string.loud_small_button_programmatic)
         andesButtonSmall.isEnabled = false
 
-        val andesButtonMedium = AndesButton(this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.LOUD, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
+        val andesButtonMedium = AndesButton(
+                this,
+                AndesButtonSize.MEDIUM, AndesButtonHierarchy.LOUD,
+                AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT)
+        )
         andesButtonMedium.text = getString(R.string.loud_medium_button_programmatic)
 
-        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
+        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET,
+                AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
         andesButtonLarge.text = getString(R.string.loud_large_button_programmatic)
         andesButtonLarge.hierarchy = AndesButtonHierarchy.LOUD
         andesButtonLarge.setOnClickListener {
@@ -74,13 +81,22 @@ class ButtonShowcaseActivity : AppCompatActivity() {
     }
 
     private fun addQuietButtons(container: View) {
-        val andesButtonSmall = AndesButton(this, AndesButtonSize.SMALL, AndesButtonHierarchy.QUIET, null)
+        val andesButtonSmall = AndesButton(
+                this, AndesButtonSize.SMALL, AndesButtonHierarchy.QUIET, null
+        )
         andesButtonSmall.text = getString(R.string.quiet_small_button_programmatic)
 
-        val andesButtonMedium = AndesButton(this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.QUIET, null)
+        val andesButtonMedium = AndesButton(
+                this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.QUIET, null
+        )
         andesButtonMedium.text = getString(R.string.quiet_medium_button_programmatic)
 
-        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.RIGHT))
+        val andesButtonLarge = AndesButton(
+                this,
+                AndesButtonSize.LARGE,
+                AndesButtonHierarchy.QUIET,
+                AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.RIGHT)
+        )
         andesButtonLarge.text = getString(R.string.quiet_large_button_programmatic)
         andesButtonLarge.setOnClickListener {
             andesButtonLarge.hierarchy = AndesButtonHierarchy.LOUD

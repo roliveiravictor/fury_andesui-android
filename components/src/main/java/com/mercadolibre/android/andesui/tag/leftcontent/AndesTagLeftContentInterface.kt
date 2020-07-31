@@ -130,7 +130,6 @@ internal object AndesTagLeftContentImage : AndesTagLeftContentInterface() {
         if (icon != null) {
             leftContent.image!!.avatar = icon
         }
-
         val imageView = ImageView(context)
         imageView.setImageBitmap(leftContent.image!!.avatar)
         return imageView

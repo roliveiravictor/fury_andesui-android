@@ -38,6 +38,7 @@ class AndesTextfield : ConstraintLayout {
         get() = textComponent.text.toString()
         set(value) {
             textComponent.setText(value)
+            setupCounterComponent(createConfig())
         }
 
     /**
@@ -79,6 +80,16 @@ class AndesTextfield : ConstraintLayout {
         get() = andesTextfieldAttrs.counter
         set(value) {
             andesTextfieldAttrs = andesTextfieldAttrs.copy(counter = value)
+            setupCounterComponent(createConfig())
+        }
+
+    /**
+     * Getter and setter for [showCounter].
+     */
+    var showCounter: Boolean
+        get() = andesTextfieldAttrs.showCounter
+        set(value) {
+            andesTextfieldAttrs = andesTextfieldAttrs.copy(showCounter = value)
             setupCounterComponent(createConfig())
         }
 
@@ -128,6 +139,16 @@ class AndesTextfield : ConstraintLayout {
             setupInputType()
         }
 
+    /**
+     * Getter and setter for the [textWatcher].
+     */
+    var textWatcher: TextWatcher?
+        get() = andesTextfieldAttrs.textWatcher
+        set(value) {
+            andesTextfieldAttrs = andesTextfieldAttrs.copy(textWatcher = value)
+            setupTextWatcher()
+        }
+
     private lateinit var andesTextfieldAttrs: AndesTextfieldAttrs
     private lateinit var textfieldContainer: ConstraintLayout
     private lateinit var textContainer: ConstraintLayout
@@ -141,7 +162,8 @@ class AndesTextfield : ConstraintLayout {
 
     @Suppress("unused")
     constructor(context: Context) : super(context) {
-        initAttrs(LABEL_DEFAULT, HELPER_DEFAULT, PLACEHOLDER_DEFAULT, COUNTER_DEFAULT, STATE_DEFAULT, LEFT_COMPONENT_DEFAULT, RIGHT_COMPONENT_DEFAULT, INPUT_TYPE_DEFAULT)
+        initAttrs(LABEL_DEFAULT, HELPER_DEFAULT, PLACEHOLDER_DEFAULT, COUNTER_DEFAULT,
+                  STATE_DEFAULT, LEFT_COMPONENT_DEFAULT, RIGHT_COMPONENT_DEFAULT, INPUT_TYPE_DEFAULT)
     }
 
     constructor(
@@ -154,8 +176,7 @@ class AndesTextfield : ConstraintLayout {
         leftContent: AndesTextfieldLeftContent? = LEFT_COMPONENT_DEFAULT,
         rightContent: AndesTextfieldRightContent? = RIGHT_COMPONENT_DEFAULT,
         inputType: Int = INPUT_TYPE_DEFAULT
-    ) :
-            super(context) {
+    ) : super(context) {
         initAttrs(label, helper, placeholder, counter, state, leftContent, rightContent, inputType)
     }
 
@@ -183,7 +204,10 @@ class AndesTextfield : ConstraintLayout {
         rightContent: AndesTextfieldRightContent?,
         inputType: Int
     ) {
-        andesTextfieldAttrs = AndesTextfieldAttrs(label, helper, placeholder, counter, state, leftContent, rightContent, inputType)
+        val showCounter = SHOW_COUNTER_DEFAULT
+        andesTextfieldAttrs = AndesTextfieldAttrs(
+                label, helper, placeholder, counter, showCounter, state, leftContent, rightContent, inputType
+        )
         val config = AndesTextfieldConfigurationFactory.create(context, andesTextfieldAttrs)
         setupComponents(config)
     }
@@ -201,6 +225,7 @@ class AndesTextfield : ConstraintLayout {
         setupRightComponent(config)
         setupColorComponents(config)
         setupInputType()
+        setupTextWatcher()
         setupTextComponent(config)
     }
 
@@ -260,6 +285,16 @@ class AndesTextfield : ConstraintLayout {
      */
     private fun setupInputType() {
         textComponent.inputType = inputType
+        textComponent.setSelection(textComponent.text.length)
+    }
+
+    /**
+     * Set the TextWatcher of the edit text.
+     */
+    private fun setupTextWatcher() {
+        if (andesTextfieldAttrs.textWatcher != null) {
+            textComponent.addTextChangedListener(andesTextfieldAttrs.textWatcher)
+        }
     }
 
     /**
@@ -319,7 +354,7 @@ class AndesTextfield : ConstraintLayout {
      * Gets data from the config and sets to the Counter component.
      */
     private fun setupCounterComponent(config: AndesTextfieldConfiguration) {
-        if (config.counterLength != 0 && state != READONLY) {
+        if (config.counterLength != 0 && state != READONLY && showCounter) {
             counterComponent.visibility = View.VISIBLE
             counterComponent.setTextSize(TypedValue.COMPLEX_UNIT_PX, config.counterSize)
             counterComponent.text = resources.getString(R.string.andes_textfield_counter_text, 0, config.counterLength)
@@ -437,6 +472,16 @@ class AndesTextfield : ConstraintLayout {
     }
 
     /**
+     * Set the right content to action and provides an interface to set button text.
+     */
+    fun setTextAction(text: String) {
+        if (rightComponent.getChildAt(0) is AndesButton) {
+            val action: AndesButton = rightComponent.getChildAt(0) as AndesButton
+            action.text = text
+        }
+    }
+
+    /**
      * Set the right content to icon and provides an interface to give the icon path.
      */
     fun setRightIcon(iconPath: String) {
@@ -490,6 +535,7 @@ class AndesTextfield : ConstraintLayout {
         private val HELPER_DEFAULT = null
         private val PLACEHOLDER_DEFAULT = null
         private val COUNTER_DEFAULT = 0
+        private val SHOW_COUNTER_DEFAULT = true
         private val STATE_DEFAULT = IDLE
         private val LEFT_COMPONENT_DEFAULT = null
         private val RIGHT_COMPONENT_DEFAULT = null

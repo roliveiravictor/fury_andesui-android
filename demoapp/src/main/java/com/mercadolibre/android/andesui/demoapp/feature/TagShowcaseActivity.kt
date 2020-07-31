@@ -106,7 +106,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleSmallDismissable = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.SMALL,
                     "Dismissable"
             )
@@ -136,7 +136,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleDismissable = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Dismissable"
             )
@@ -158,7 +158,7 @@ class TagShowcaseActivity : AppCompatActivity() {
             // Left content DOT
             val tagSimpleDot = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Amarillo"
             )
@@ -169,7 +169,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleDotDismissable = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Azul"
             )
@@ -181,7 +181,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleDotText = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Camila Farías"
             )
@@ -192,7 +192,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleDotTextDismissable = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Camila Farías"
             )
@@ -204,7 +204,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleIcon = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Tag con icono"
             )
@@ -219,7 +219,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val tagSimpleIconDismissable = AndesTagSimple(
                     context,
-                    AndesTagType.DEFAULT,
+                    AndesTagType.NEUTRAL,
                     AndesTagSize.LARGE,
                     "Icono"
             )
@@ -242,7 +242,7 @@ class TagShowcaseActivity : AppCompatActivity() {
                             if (resource != null) {
                                 val tagSimpleImage = AndesTagSimple(
                                         context,
-                                        AndesTagType.DEFAULT,
+                                        AndesTagType.NEUTRAL,
                                         AndesTagSize.LARGE,
                                         "Tatiana"
                                 )
@@ -261,7 +261,7 @@ class TagShowcaseActivity : AppCompatActivity() {
                             if (resource != null) {
                                 val tagSimpleImage = AndesTagSimple(
                                         context,
-                                        AndesTagType.DEFAULT,
+                                        AndesTagType.NEUTRAL,
                                         AndesTagSize.LARGE,
                                         "Lorenzo"
                                 )
@@ -284,7 +284,7 @@ class TagShowcaseActivity : AppCompatActivity() {
 
             val typeSpinner: Spinner = layoutTag.findViewById(R.id.type_spinner)
             ArrayAdapter.createFromResource(
-                    context, R.array.type_tag_spinner, android.R.layout.simple_spinner_item)
+                    context, R.array.type_spinner, android.R.layout.simple_spinner_item)
                     .also { adapter ->
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         typeSpinner.adapter = adapter
@@ -404,7 +404,7 @@ class TagShowcaseActivity : AppCompatActivity() {
                 labelText.helper = null
 
                 andesTagSimple.text = "Simple tag"
-                andesTagSimple.type = AndesTagType.DEFAULT
+                andesTagSimple.type = AndesTagType.NEUTRAL
                 andesTagSimple.size = AndesTagSize.LARGE
                 andesTagSimple.isDismissable = false
                 andesTagSimple.leftContent = null
@@ -433,7 +433,7 @@ class TagShowcaseActivity : AppCompatActivity() {
                     "Dot" -> {
                         if (backgroundColor.text.isNullOrEmpty()) {
                             backgroundColor.state = AndesTextfieldState.ERROR
-                            backgroundColor.helper = "Este capo es requerido"
+                            backgroundColor.helper = "Este campo es requerido"
                             return@setOnClickListener
                         } else if (!validateColor("#${backgroundColor.text!!}")) {
                             backgroundColor.state = AndesTextfieldState.ERROR

@@ -13,8 +13,7 @@ enum class AndesTagType {
     HIGHLIGHT,
     SUCCESS,
     WARNING,
-    ERROR,
-    DEFAULT;
+    ERROR;
 
     companion object {
         fun fromString(value: String): AndesTagType = valueOf(value.toUpperCase())
@@ -29,7 +28,6 @@ enum class AndesTagType {
             SUCCESS -> AndesSuccessTagType()
             WARNING -> AndesWarningTagType()
             ERROR -> AndesErrorTagType()
-            DEFAULT -> AndesDefaultTagType()
         }
     }
 }

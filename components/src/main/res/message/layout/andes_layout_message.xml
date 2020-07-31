@@ -115,6 +115,22 @@
             tools:visibility="visible" />
 
         <com.mercadolibre.android.andesui.button.AndesButton
+            android:id="@+id/andes_link_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:andesButtonHierarchy="loud"
+            app:andesButtonSize="medium"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/andes_bottom_guideline"
+            app:layout_constraintEnd_toStartOf="@+id/andes_dismissableleft_guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/andes_righticon_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/andes_body"
+            app:layout_constraintVertical_bias="1.0"
+            tools:visibility="visible" />
+
+        <com.mercadolibre.android.andesui.button.AndesButton
             android:id="@+id/andes_secondary_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

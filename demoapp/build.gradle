@@ -83,6 +83,7 @@ dependencies {
      * https://github.com/noties/Markwon
      */
     implementation "io.noties.markwon:core:$markwonVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
 
 /**

@@ -8,4 +8,10 @@
     <dimen name="margin_vertical_text_field">16dp</dimen>
     <dimen name="margin_horizontal_text_field">16dp</dimen>
     <dimen name="button_clear_width">120dp</dimen>
+
+    <dimen name="margin_vertical_thumbnail">16dp</dimen>
+    <dimen name="margin_horizontal_thumbnail">16dp</dimen>
+
+    <dimen name="description_text_size_thumbnail">12sp</dimen>
+
 </resources>

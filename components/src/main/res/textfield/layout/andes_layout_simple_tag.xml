@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <FrameLayout
-        android:id="@+id/left_content"
+        android:id="@+id/leftContent"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="@dimen/andes_tag_small_margin"
@@ -15,29 +15,29 @@
         android:layout_marginBottom="@dimen/andes_tag_small_margin"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/andes_tag_container"
-        app:layout_constraintEnd_toStartOf="@+id/simple_tag_text"
+        app:layout_constraintEnd_toStartOf="@+id/simpleTagText"
         app:layout_constraintStart_toStartOf="@id/andes_tag_container"
         app:layout_constraintTop_toTopOf="@+id/andes_tag_container"/>
 
     <TextView
-        android:id="@+id/simple_tag_text"
+        android:id="@+id/simpleTagText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/andes_tag_small_text_size"
         app:layout_constraintBottom_toBottomOf="@id/andes_tag_container"
-        app:layout_constraintEnd_toStartOf="@+id/right_content"
-        app:layout_constraintStart_toEndOf="@+id/left_content"
+        app:layout_constraintEnd_toStartOf="@+id/rightContent"
+        app:layout_constraintStart_toEndOf="@+id/leftContent"
         app:layout_constraintTop_toTopOf="@id/andes_tag_container" />
 
     <FrameLayout
-        android:id="@+id/right_content"
+        android:id="@+id/rightContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/andes_tag_medium_margin"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/andes_tag_container"
         app:layout_constraintEnd_toEndOf="@id/andes_tag_container"
-        app:layout_constraintStart_toEndOf="@+id/simple_tag_text"
+        app:layout_constraintStart_toEndOf="@+id/simpleTagText"
         app:layout_constraintTop_toTopOf="@+id/andes_tag_container" />
 
 </android.support.constraint.ConstraintLayout>

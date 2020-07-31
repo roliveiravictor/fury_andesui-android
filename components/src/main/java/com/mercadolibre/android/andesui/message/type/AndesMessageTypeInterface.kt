@@ -24,6 +24,8 @@ internal sealed class AndesMessageTypeInterface {
     abstract fun primaryActionColorConfig(): BackgroundColorConfig
 
     abstract fun secondaryActionColorConfig(): BackgroundColorConfig
+
+    abstract fun linkActionColorConfig(): BackgroundColorConfig
 }
 
 internal object AndesNeutralMessageType : AndesMessageTypeInterface() {
@@ -54,6 +56,16 @@ internal object AndesNeutralMessageType : AndesMessageTypeInterface() {
                 focusedColor = R.color.andes_accent_color_300.toAndesColor(),
                 hoveredColor = R.color.andes_accent_color_600.toAndesColor(),
                 disabledColor = R.color.andes_gray_100.toAndesColor(),
+                otherColor = null)
+    }
+
+    override fun linkActionColorConfig(): BackgroundColorConfig {
+        return BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
                 otherColor = null)
     }
 }
@@ -88,6 +100,16 @@ internal object AndesSuccessMessageType : AndesMessageTypeInterface() {
                 disabledColor = R.color.andes_gray_100.toAndesColor(),
                 otherColor = null)
     }
+
+    override fun linkActionColorConfig(): BackgroundColorConfig {
+        return BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
+                otherColor = null)
+    }
 }
 
 internal object AndesWarningMessageType : AndesMessageTypeInterface() {
@@ -120,6 +142,16 @@ internal object AndesWarningMessageType : AndesMessageTypeInterface() {
                 disabledColor = R.color.andes_gray_100.toAndesColor(),
                 otherColor = null)
     }
+
+    override fun linkActionColorConfig(): BackgroundColorConfig {
+        return BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
+                otherColor = null)
+    }
 }
 
 internal object AndesErrorMessageType : AndesMessageTypeInterface() {
@@ -150,6 +182,16 @@ internal object AndesErrorMessageType : AndesMessageTypeInterface() {
                 focusedColor = R.color.andes_red_300.toAndesColor(),
                 hoveredColor = R.color.andes_red_600.toAndesColor(),
                 disabledColor = R.color.andes_gray_100.toAndesColor(),
+                otherColor = null)
+    }
+
+    override fun linkActionColorConfig(): BackgroundColorConfig {
+        return BackgroundColorConfig(
+                enabledColor = R.color.andes_transparent.toAndesColor(),
+                pressedColor = R.color.andes_transparent.toAndesColor(),
+                focusedColor = R.color.andes_transparent.toAndesColor(),
+                hoveredColor = R.color.andes_transparent.toAndesColor(),
+                disabledColor = R.color.andes_transparent.toAndesColor(),
                 otherColor = null)
     }
 }

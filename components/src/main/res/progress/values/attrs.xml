@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="AndesProgressIndicator" tools:ignore="ResourceName">
+        <attr name="andesProgressIndicatorSize">
+            <enum name="tiny" value="3000" />
+            <enum name="small" value="3001" />
+            <enum name="medium" value="3002" />
+            <enum name="large" value="3003" />
+            <enum name="xlarge" value="3004" />
+        </attr>
+
+        <attr name="andesLabel" format="reference" />
+
+        <attr name="andesTint" format="reference" />
+
+        <attr name="andesTextColor" format="reference" />
+
+        <attr name="andesLinear" format="boolean" />
+
+        <attr name="andesOffset" format="reference" />
+        
+        <attr name="andesThumbnail" format="reference" />
+    </declare-styleable>
+</resources>
